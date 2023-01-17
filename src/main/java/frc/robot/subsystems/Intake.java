@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Intake extends SubsystemBase {
 
+  // Add Solenoids for Arm and Grasper
   private DoubleSolenoid testSol;
 
   /** Creates a new PneumaticControl. */
