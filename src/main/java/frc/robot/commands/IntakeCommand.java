@@ -28,29 +28,36 @@ public class IntakeCommand extends CommandBase {
   @Override
   public void execute() {
 
-    //solenoid 2,3
-    if (Robot.getLeftJoystick().getRawButton(5)){
+    //solenoid 2,3 & solenoid 0,1 (allows you to close and open AT SAME TIME)
+    if (Robot.getLeftJoystick().getRawButton(5)){ //close
       intake.intakeDown();
-    }
-    if(Robot.getLeftJoystick().getRawButton(3)){
-      intake.intakeUp();
-    }
-    
-    //solenoid 0,1
-    if (Robot.getLeftJoystick().getRawButton(6)){
-      intake.closeClaw();
-    }
-    if(Robot.getLeftJoystick().getRawButton(4)){
       intake.openClaw();
     }
+    if(Robot.getLeftJoystick().getRawButton(3)){ //open
+      intake.intakeUp();
+      intake.closeClaw();
+    }
+    
+    /**
+     * this code below allows you to control each one
+     * rather than have it open or close at the 
+     * same time... 
+     */
+    // //solenoid 0,1
+    // if (Robot.getLeftJoystick().getRawButton(6)){
+    //   intake.closeClaw();
+    // }
+    // if(Robot.getLeftJoystick().getRawButton(4)){
+    //   intake.openClaw();
+    // }
 
-    //solenoid 4, 5
-    if (Robot.getLeftJoystick().getRawButton(11)){
-      intake.closeArm();
-    }
-    if(Robot.getLeftJoystick().getRawButton(12)){
-      intake.openArm();
-    }
+    // //solenoid 4, 5
+    // if (Robot.getLeftJoystick().getRawButton(11)){
+    //   intake.closeArm();
+    // }
+    // if(Robot.getLeftJoystick().getRawButton(12)){
+    //   intake.openArm();
+    // }
 
   }
 
