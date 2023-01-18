@@ -17,6 +17,7 @@ public class IntakeCommand extends CommandBase {
   public IntakeCommand(Intake intake) {
     // Use addRequirements() here to declare subsystem dependencies.
     this.intake=intake;
+    
   }
 
   // Called when the command is initially scheduled.
@@ -27,11 +28,28 @@ public class IntakeCommand extends CommandBase {
   @Override
   public void execute() {
 
+    //solenoid 2,3
     if (Robot.getLeftJoystick().getRawButton(5)){
       intake.intakeDown();
     }
     if(Robot.getLeftJoystick().getRawButton(3)){
       intake.intakeUp();
+    }
+    
+    //solenoid 0,1
+    if (Robot.getLeftJoystick().getRawButton(6)){
+      intake.closeClaw();
+    }
+    if(Robot.getLeftJoystick().getRawButton(4)){
+      intake.openClaw();
+    }
+
+    //solenoid 4, 5
+    if (Robot.getLeftJoystick().getRawButton(11)){
+      intake.closeArm();
+    }
+    if(Robot.getLeftJoystick().getRawButton(12)){
+      intake.openArm();
     }
 
   }
