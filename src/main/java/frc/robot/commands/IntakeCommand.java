@@ -32,10 +32,12 @@ public class IntakeCommand extends CommandBase {
     if (Robot.getLeftJoystick().getRawButton(5)){ //close
       intake.intakeDown();
       intake.openClaw();
+      intake.openArm();
     }
     if(Robot.getLeftJoystick().getRawButton(3)){ //open
       intake.intakeUp();
       intake.closeClaw();
+      intake.closeArm();
     }
     
     /**

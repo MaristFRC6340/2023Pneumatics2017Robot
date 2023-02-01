@@ -25,8 +25,10 @@ public class Robot extends TimedRobot {
   private Command m_teleopCommand;
   private Command m_intakeCommand;
 
-  private static Joystick leftJoystick = new Joystick(0);
-  private static Joystick rightJoystick = new Joystick(1);
+  private static Joystick leftJoystick = new Joystick(0); // Left Drive
+  private static Joystick rightJoystick = new Joystick(1); // Right Drive
+
+  private static Joystick joyLogi = new Joystick(2); // For Lift 
   
   private static final String kDefaultAuto = "Default";
   private static final String kAimTimeAuto = "Aim Time";
@@ -131,7 +133,7 @@ public class Robot extends TimedRobot {
     m_intakeCommand = m_robotContainer.getIntakeCommand();
     m_intakeCommand.schedule();
 
-
+    m_robotContainer.getLiftCommand().schedule();
     
   }
 
@@ -166,4 +168,10 @@ public class Robot extends TimedRobot {
   {
     return rightJoystick;
   }
+
+  public static Joystick getJoyLogi()
+  {
+    return joyLogi;
+  }
+
 }

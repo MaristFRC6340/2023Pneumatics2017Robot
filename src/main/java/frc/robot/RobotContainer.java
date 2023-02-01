@@ -10,10 +10,12 @@ import frc.robot.commands.AimTimeCommand;
 import frc.robot.commands.DriveTowardsCommand;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.IntakeCommand;
+import frc.robot.commands.LiftCommand;
 import frc.robot.commands.TankDrive;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.Intake;
+import frc.robot.subsystems.LiftSubSystem;
 import edu.wpi.first.wpilibj2.command.Command;
 
 /**
@@ -35,6 +37,8 @@ public class RobotContainer {
 
   private final Intake intake = new Intake();
   private final IntakeCommand m_intake = new IntakeCommand(intake);
+
+  private final LiftSubSystem lift = new LiftSubSystem();
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -75,4 +79,9 @@ public class RobotContainer {
   public Command getIntakeCommand(){
     return m_intake;
   }
+
+  public Command getLiftCommand(){
+    return new LiftCommand(lift);
+  }
+
 }
